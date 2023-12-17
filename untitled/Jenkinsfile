@@ -1,6 +1,9 @@
 pipeline {
-  agent any
-  stages {
+stages{
+  stage('Tests unitaire'){
+    steps{
+        bat "./gradlew test"
+    }
+  }
 }
-
 }

@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2991800,
+              "duration": 8500700,
               "status": "passed"
             },
             "line": 3,
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2023-12-17T14:20:56.529Z",
+        "start_timestamp": "2023-12-17T14:42:09.369Z",
         "line": 5,
         "name": "Determinant",
         "description": "",
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3702600,
+              "duration": 10682400,
               "status": "passed"
             },
             "line": 6,
@@ -76,7 +76,6 @@
           },
           {
             "result": {
-              "duration": 3064100,
               "status": "passed"
             },
             "line": 11,
@@ -103,7 +102,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1105700,
               "status": "passed"
             },
             "line": 3,
@@ -116,7 +114,7 @@
         ]
       },
       {
-        "start_timestamp": "2023-12-17T14:20:56.666Z",
+        "start_timestamp": "2023-12-17T14:42:09.469Z",
         "line": 14,
         "name": "Transpose",
         "description": "",
@@ -163,7 +161,6 @@
           },
           {
             "result": {
-              "duration": 506400,
               "status": "passed"
             },
             "line": 20,
@@ -219,7 +216,7 @@
         ]
       },
       {
-        "start_timestamp": "2023-12-17T14:20:56.670Z",
+        "start_timestamp": "2023-12-17T14:42:09.485Z",
         "line": 26,
         "name": "Inverse",
         "description": "",
@@ -229,6 +226,7 @@
         "steps": [
           {
             "result": {
+              "duration": 3116000,
               "status": "passed"
             },
             "line": 27,
@@ -300,7 +298,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1428300,
               "status": "passed"
             },
             "line": 3,
@@ -313,7 +310,7 @@
         ]
       },
       {
-        "start_timestamp": "2023-12-17T14:20:56.674Z",
+        "start_timestamp": "2023-12-17T14:42:09.488Z",
         "line": 37,
         "name": "Cofactor",
         "description": "",
