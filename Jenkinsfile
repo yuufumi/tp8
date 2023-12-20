@@ -29,7 +29,7 @@ stages{
         }
     }
   }
-  stage('Scan'){
+  stage('Scanner'){
   steps{
   withSonarQubeEnv(installationName: 'sonar'){
       bat 'gradlew sonarqube'
