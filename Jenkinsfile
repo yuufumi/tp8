@@ -7,7 +7,7 @@ stages{
     }
     post {
         success{
-        archiveArtifacts 'target/*.hpi,target/*.jpi'
+        archiveArtifacts 'target/*.json'
         }
     }
   }
