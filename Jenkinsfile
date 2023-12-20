@@ -7,16 +7,12 @@ pipeline {
           script {
             mail="Build failed"
           }
-
         }
-
         success {
           script {
             mail="Build succeeded"
           }
-
         }
-
       }
       steps {
         bat 'gradle build'
@@ -25,18 +21,11 @@ pipeline {
         junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults: true)
       }
     }
-
-    stage('Mail Notification') {
-      steps {
-        mail(subject: 'Jenkins notification', body: mail, cc: 'ia_kermiche@esi.dz', bcc: 'ic_rouzzi@esi.dz')
-      }
-    }
-
     stage('Code Analysis') {
       parallel {
         stage('Code Analysis') {
           steps {
-            withSonarQubeEnv('My SonarQube Server') {
+            withSonarQubeEnv('sonar') {
               bat(script: 'gradle sonarqube', returnStatus: true)
             }
 
@@ -52,4 +41,5 @@ pipeline {
 
       }
     }
+}
 }
