@@ -16,6 +16,19 @@ repositories {
     mavenCentral()
 }
 
+sonarqube {
+    properties {
+        // SonarQube server configuration
+        property 'sonar.host.url', 'http://localhost:9000'
+        property 'sonar.login', 'admin'
+        property 'sonar.password', 'admin'
+
+        // Project information
+        property 'sonar.projectKey', 'TP8'
+        property 'sonar.projectName', 'untitled'
+        property 'sonar.projectVersion', '1.0'
+    }
+}
 
 publishing {
     repositories {

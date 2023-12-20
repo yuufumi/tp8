@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 8500700,
+              "duration": 5516100,
               "status": "passed"
             },
             "line": 3,
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2023-12-17T14:42:09.369Z",
+        "start_timestamp": "2023-12-20T17:45:00.826Z",
         "line": 5,
         "name": "Determinant",
         "description": "",
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 10682400,
+              "duration": 4013300,
               "status": "passed"
             },
             "line": 6,
@@ -76,6 +76,7 @@
           },
           {
             "result": {
+              "duration": 4988100,
               "status": "passed"
             },
             "line": 11,
@@ -114,7 +115,7 @@
         ]
       },
       {
-        "start_timestamp": "2023-12-17T14:42:09.469Z",
+        "start_timestamp": "2023-12-20T17:45:00.951Z",
         "line": 14,
         "name": "Transpose",
         "description": "",
@@ -161,6 +162,7 @@
           },
           {
             "result": {
+              "duration": 997300,
               "status": "passed"
             },
             "line": 20,
@@ -216,7 +218,7 @@
         ]
       },
       {
-        "start_timestamp": "2023-12-17T14:42:09.485Z",
+        "start_timestamp": "2023-12-20T17:45:00.958Z",
         "line": 26,
         "name": "Inverse",
         "description": "",
@@ -226,7 +228,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3116000,
+              "duration": 1009400,
               "status": "passed"
             },
             "line": 27,
@@ -310,7 +312,7 @@
         ]
       },
       {
-        "start_timestamp": "2023-12-17T14:42:09.488Z",
+        "start_timestamp": "2023-12-20T17:45:00.962Z",
         "line": 37,
         "name": "Cofactor",
         "description": "",
