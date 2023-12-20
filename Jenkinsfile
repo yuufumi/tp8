@@ -5,22 +5,16 @@ stages{
     steps{
     bat "gradlew build"
     }
-    post {
-        success{
-        archiveArtifacts 'target/*.json'
-        }
-    }
   }
   stage('Tests'){
     steps{
         bat "gradlew test"
     }
     post {
-        always{
-            junit '**/surefire-reports/**/*.xml'
+        success{
+        archiveArtifacts 'target/*'
         }
     }
-
   }
 }
 }
