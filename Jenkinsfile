@@ -1,35 +1,55 @@
 pipeline {
-agent any
-stages{
-  stage('Tests'){
-    steps{
-        bat "gradlew test"
-    }
-    post {
-        success{
-        archiveArtifacts 'target/*'
-        cucumber buildStatus: 'UNSTABLE',
-                        failedFeaturesNumber: 1,
-                        failedScenariosNumber: 1,
-                        skippedStepsNumber: 1,
-                        failedStepsNumber: 1,
-                        classifications: [
-                                [key: 'Commit', value: '<a href="${GERRIT_CHANGE_URL}">${GERRIT_PATCHSET_REVISION}</a>'],
-                                [key: 'Submitter', value: '${GERRIT_PATCHSET_UPLOADER_NAME}']
-                        ],
-                        reportTitle: 'My report',
-                        fileIncludePattern: 'target/*report.json',
-                        sortingMethod: 'ALPHABETICAL',
-                        trendsLimit: 100
+  agent any
+  stages {
+    stage('build') {
+      post {
+        failure {
+          script {
+            mail="Build failed"
+          }
+
         }
+
+        success {
+          script {
+            mail="Build succeeded"
+          }
+
+        }
+
+      }
+      steps {
+        bat 'gradle build'
+        bat 'gradle javadoc'
+        archiveArtifacts 'build/libs/*.jar'
+        junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults: true)
+      }
     }
-  }
-  stage('Scanner'){
-  steps{
-  withSonarQubeEnv(installationName: 'sonar'){
-      bat 'gradlew sonarqube'
-  }
-  }
-  }
-}
+
+    stage('Mail Notification') {
+      steps {
+        mail(subject: 'Jenkins notification', body: mail, cc: 'ia_kermiche@esi.dz', bcc: 'ic_rouzzi@esi.dz')
+      }
+    }
+
+    stage('Code Analysis') {
+      parallel {
+        stage('Code Analysis') {
+          steps {
+            withSonarQubeEnv('My SonarQube Server') {
+              bat(script: 'gradle sonarqube', returnStatus: true)
+            }
+
+            waitForQualityGate true
+          }
+        }
+
+        stage('Test Reporting') {
+          steps {
+            cucumber 'reports/*json'
+          }
+        }
+
+      }
+    }
 }
