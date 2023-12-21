@@ -50,6 +50,11 @@ pipeline {
         junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults: true)
       }
     }
+    stage("deploy") {
+    steps{
+    bat 'gradlew publish'
+    }
+    }
 
 }
 }
