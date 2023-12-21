@@ -62,15 +62,9 @@ pipeline {
             mail(subject: 'success notification', body: mail, cc: 'ky_benali@esi.dz', bcc: 'ka_oubahi@esi.dz')
         }
         }
-        stage('Slack Notification'){
+        stage('others Notification'){
         steps{notifyEvents message: mail, token: 'tk5mzrwqer_3q3kybjygnqeqfm5ucxb4'
         }
-        }
-        stage('Signal Notification'){
-        steps {notifyEvents message: mail, token: 'tk5mzrwqer_3q3kybjygnqeqfm5ucxb4'
-        }
-        }
-        stage('Chrome Notification'){ steps{notifyEvents message: mail, token: 'tk5mzrwqer_3q3kybjygnqeqfm5ucxb4'}
         }}
     }
 }
