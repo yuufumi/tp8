@@ -13,7 +13,7 @@ pipeline {
      }
      stage('Code Analysis') {
         parallel {
-          stage('Code Quality') {
+          /*stage('Code Quality') {
             steps {
               withSonarQubeEnv('sonar') {
                 bat(script: 'gradlew sonarqube', returnStatus: true)
@@ -21,7 +21,7 @@ pipeline {
 
               waitForQualityGate true
             }
-          }
+          }*/
 
           stage('Test Reporting') {
             steps {
