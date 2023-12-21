@@ -55,6 +55,11 @@ pipeline {
     bat 'gradlew publish'
     }
     }
-
+    stage('Mail Notification') {
+        steps {
+            mail(subject: 'success notification', body: mail, cc: 'ky_benali@esi.dz', bcc: 'ka_oubahi@esi.dz')
+        }
+    }
 }
 }
+/*password = quli fgyu nqyi knki*/
