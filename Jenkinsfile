@@ -1,6 +1,35 @@
 pipeline {
   agent any
   stages {
+     stage('Tests'){
+     steps{
+     bat 'gradlew test'
+     }
+     post {
+             success{
+             archiveArtifacts 'target/*.json'
+             }
+     }
+     }
+     stage('Code Analysis') {
+        parallel {
+          stage('Code Analysis') {
+            steps {
+              withSonarQubeEnv('sonar') {
+                bat(script: 'gradlew sonarqube', returnStatus: true)
+              }
+
+              waitForQualityGate true
+            }
+          }
+
+          stage('Test Reporting') {
+            steps {
+              cucumber 'reports/*json'
+            }
+          }
+        }
+      }
     stage('build') {
       post {
         failure {
@@ -21,25 +50,6 @@ pipeline {
         junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults: true)
       }
     }
-    stage('Code Analysis') {
-      parallel {
-        stage('Code Analysis') {
-          steps {
-            withSonarQubeEnv('sonar') {
-              bat(script: 'gradlew sonarqube', returnStatus: true)
-            }
 
-            waitForQualityGate true
-          }
-        }
-
-        stage('Test Reporting') {
-          steps {
-            cucumber 'reports/*json'
-          }
-        }
-
-      }
-    }
 }
 }
