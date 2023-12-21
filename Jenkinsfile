@@ -15,7 +15,7 @@ pipeline {
         parallel {
           stage('Code Quality') {
             steps {
-              withSonarQubeEnv('sq1') {
+              withSonarQubeEnv('sonar') {
                 bat(script: 'gradlew sonarqube', returnStatus: true)
               }
 
