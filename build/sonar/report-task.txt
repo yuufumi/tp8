@@ -2,5 +2,5 @@ projectKey=TP8
 serverUrl=http://localhost:9000
 serverVersion=7.4.0.18908
 dashboardUrl=http://localhost:9000/dashboard?id=TP8
-ceTaskId=AYyOaZXLeLaziyL8YnyQ
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYyOaZXLeLaziyL8YnyQ
+ceTaskId=AY0IGbW0k0IJ7q27Eunp
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AY0IGbW0k0IJ7q27Eunp

@@ -12,24 +12,24 @@ pipeline {
      }
      }
      stage('Code Analysis') {
-        parallel {
-          stage('Code Quality') {
-            steps {
-              withSonarQubeEnv('sonar') {
-                bat 'gradlew sonar'
-              }
-
-              waitForQualityGate true
-            }
-          }
-
           stage('Test Reporting') {
             steps {
               cucumber 'reports/*json'
             }
           }
         }
-      }
+     stage('Code Quality') {
+                    steps {
+                      withSonarQubeEnv('sonar') {
+                        bat 'gradlew sonar'
+                      }
+     }
+     stage('Wait for quality gate'){
+                      timeout(time: 1, unit: 'HOURS') {
+                        waitForQualityGate abortPipeline: true
+                      }
+     }
+                  }
     stage('build') {
       post {
         failure {
