@@ -1,0 +1,10 @@
+-classpath 'E:\\2CSSIL\\OGL\\tp8\\build\\classes\\java\\main;E:\\2CSSIL\\OGL\\tp8\\build\\resources\\main'
+-d 'E:\\2CSSIL\\OGL\\tp8\\build\\docs\\javadoc'
+-doctitle 'untitled 1.0 API'
+-notimestamp 
+-quiet 
+-windowtitle 'untitled 1.0 API'
+'E:\\2CSSIL\\OGL\\tp8\\src\\main\\java\\com\\example\\exception\\NoSquareException.java'
+'E:\\2CSSIL\\OGL\\tp8\\src\\main\\java\\com\\example\\model\\Matrix.java'
+'E:\\2CSSIL\\OGL\\tp8\\src\\main\\java\\com\\example\\service\\MatrixMathematics.java'
+'E:\\2CSSIL\\OGL\\tp8\\src\\main\\java\\org\\example\\Main.java'

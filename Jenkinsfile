@@ -47,6 +47,8 @@ pipeline {
         bat 'gradlew build'
         bat 'gradlew javadoc'
         archiveArtifacts 'build/libs/*.jar'
+        archiveArtifacts 'build/docs/javadoc'
+
         junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults: true)
       }
     }
