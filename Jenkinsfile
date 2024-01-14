@@ -2,14 +2,14 @@ pipeline {
   agent any
   stages {
      stage('Tests'){
-     steps{
-     bat 'gradlew test'
-     }
-     post {
-             success{
-             archiveArtifacts 'target/*.json'
-             }
-     }
+        steps{
+            bat 'gradlew test'
+        }
+        post {
+            success{
+                 archiveArtifacts 'target/*.json'
+            }
+        }
      }
      stage('Test Reporting') {
         steps {
@@ -17,11 +17,12 @@ pipeline {
         }
      }
      stage('Code Analysis') {
-                    steps {
-                      withSonarQubeEnv('sonar') {
-                        bat 'gradlew sonar'
-                      }
+        steps {
+            withSonarQubeEnv('sonar') {
+                bat 'gradlew sonar'
+            }
         }
+     }
      stage('Code Quality') {
         steps{
             timeout(time: 1, unit: 'HOURS') {
