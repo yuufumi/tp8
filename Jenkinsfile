@@ -11,26 +11,25 @@ pipeline {
              }
      }
      }
-     stage('Code Analysis') {
-          stage('Test Reporting') {
-            steps {
-              cucumber 'reports/*json'
-            }
-          }
+     stage('Test Reporting') {
+        steps {
+            cucumber 'reports/*json'
         }
-     stage('Code Quality') {
+     }
+     stage('Code Analysis') {
                     steps {
                       withSonarQubeEnv('sonar') {
                         bat 'gradlew sonar'
                       }
+        }
+     stage('Code Quality') {
+        steps{
+            timeout(time: 1, unit: 'HOURS') {
+                                    waitForQualityGate abortPipeline: true
+                                  }
+        }
      }
-     stage('Wait for quality gate'){
-                      timeout(time: 1, unit: 'HOURS') {
-                        waitForQualityGate abortPipeline: true
-                      }
-     }
-                  }
-    stage('build') {
+     stage('build') {
       post {
         failure {
           script {
