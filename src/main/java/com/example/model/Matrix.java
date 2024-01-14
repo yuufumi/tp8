@@ -100,4 +100,10 @@ public class Matrix {
 
 	}
 
+	@Override
+	public int hashCode() {
+		/* ... */
+		return 1;
+	}
+
 }
